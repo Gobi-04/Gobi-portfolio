@@ -46,3 +46,13 @@ export default function Home() {
     </>
   );
 }
+
+
+
+
+// indha 3D background enakku un satisfacion ah irukku , enakku , itha example ah eduthuttu , oru scenerio vachu apdiyae portfolio venum , 
+
+// simple ah kuduthuraatha , itha vida better ah venum , like oru small game maathiri , which means ithula ore veeta rotate panni kaatrilla , new va panna porathula , ore place la rotate pannam ah oru place la irundhu innoru place kku move aaganum ,
+// simple ah kudukaatha enakku high quality ah venum 
+
+// and also darkmode ad light mode kku font autoatic ah adjust aaganum 

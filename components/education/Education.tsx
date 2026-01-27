@@ -13,8 +13,8 @@ type EducationItem = {
 const education: EducationItem[] = [
   {
     degree: "Master of Computer Applications (MCA)",
-    institution: "Your College / University Name",
-    duration: "2023 – 2025",
+    institution: "SNS College Of Technology / Anna University ",
+    duration: "2024 – 2026",
     highlights: [
       "Focused on full-stack web development and modern JavaScript frameworks.",
       "Worked extensively on real-world oriented academic and personal projects.",
@@ -23,8 +23,8 @@ const education: EducationItem[] = [
   },
   {
     degree: "Bachelor’s Degree",
-    institution: "Your College Name",
-    duration: "2020 – 2023",
+    institution: "RVS Kumaran Arts & Science College ",
+    duration: "2021 – 2024",
     highlights: [
       "Built strong foundations in programming and computer science basics.",
       "Explored web technologies and application development concepts.",

@@ -11,34 +11,34 @@ type Project = {
 };
 
 const projects: Project[] = [
-  {
-    title: "Threat-Pulse",
-    description:
-      "Cyber attack tracking platform with clean dashboards and real-world security insights.",
-    image: "/projects/threat-pulse.webp",
-    stack: ["Next.js", "Tailwind", "PostgreSQL"],
-  },
+  // {
+  //   title: "Threat-Pulse",
+  //   description:
+  //     "Cyber attack tracking platform with clean dashboards and real-world security insights.",
+  //   image: "/projects/threat-pulse.webp",
+  //   stack: ["Next.js", "Tailwind", "PostgreSQL"],
+  // },
   {
     title: "ServiceFinder",
     description:
       "Local electrician and plumber service finder with authentication and listings.",
     image: "/projects/servicefinder.jpg",
-    stack: ["Next.js", "PHP", "MySQL"],
+    stack: ["HTML", "PHP", "MySQL"],
   },
   {
     title: "Online Security Guard Hiring",
     description:
       "Platform to hire security guards online with booking flow and service management.",
     image: "/projects/security-guard.png",
-    stack: ["Next.js", "Tailwind"],
+    stack: ["HTML", "CSS", "JS", "Python", "MySQL"],
   },
-  {
-    title: "Food Delivery App",
-    description:
-      "End-to-end food ordering system with cart, orders, and restaurant workflows.",
-    image: "/projects/food-delivery.avif",
-    stack: ["Next.js", "Tailwind", "MySQL"],
-  },
+  // {
+  //   title: "Food Delivery App",
+  //   description:
+  //     "End-to-end food ordering system with cart, orders, and restaurant workflows.",
+  //   image: "/projects/food-delivery.avif",
+  //   stack: ["Next.js", "Tailwind", "MySQL"],
+  // },
   {
     title: "Face Attendance System",
     description:
@@ -46,13 +46,21 @@ const projects: Project[] = [
     image: "/projects/face-attendance.jpg",
     stack: ["Python", "OpenCV", "Flask"],
   },
+
   {
-    title: "Blog Platform",
+    title: "Continental Pipes",
     description:
-      "Multi-user blog system with authentication, post creation, and content management.",
-    image: "/projects/blog.jpg",
-    stack: ["Next.js", "PHP", "MySQL"],
+      "E-Commerce site for selling pipes and fittings.",
+    image: "/projects/pro-port.png",
+    stack: ["Next.js", "Tailwind", "MySQL"],
   },
+  // {
+  //   title: "Blog Platform",
+  //   description:
+  //     "Multi-user blog system with authentication, post creation, and content management.",
+  //   image: "/projects/blog.jpg",
+  //   stack: ["Next.js", "PHP", "MySQL"],
+  // },
 ];
 
 export default function Projects() {
