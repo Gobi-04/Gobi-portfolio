@@ -15,24 +15,24 @@ const experiences: ExperienceItem[] = [
   {
     role: "WordPress Developer Intern",
     company: "Current Internship",
-    duration: "2024 – Present",
+    duration: "Sep - 2025 – Present",
     points: [
       "Worked on real client websites with WordPress and custom themes.",
       "Customized layouts, components, and UI based on client requirements.",
       "Handled bug fixes, UI improvements, and content updates in production sites.",
     ],
-    stack: ["WordPress", "PHP", "HTML", "CSS"],
+    stack: ["WordPress", "PHP", "Next.js", "Tailwind", "MySQL"],
   },
   {
     role: "Full-Stack Project Developer",
     company: "Academic & Personal Projects",
-    duration: "2023 – 2024",
+    duration: "2024 – 2025",
     points: [
       "Built full-stack web applications using Next.js, backend APIs, and databases.",
       "Implemented authentication, CRUD operations, and role-based features.",
       "Focused on clean UI, performance, and real-world usability.",
     ],
-    stack: ["Next.js", "Tailwind", "MySQL", "PostgreSQL"],
+    stack: ["React.js", "Tailwind", "MySQL"],
   },
 ];
 

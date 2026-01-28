@@ -125,7 +125,7 @@ function SkillCard({ skill }: { skill: Skill }) {
 
 /* ================= DATA ================= */
 
-const coreFrontend: Skill[] = [
+const frontendSkills: Skill[] = [
   { name: "Next.js", percent: 47, color: "bg-gray-800", icon: <SiNextdotjs /> },
   { name: "React", percent: 41, color: "bg-cyan-500", icon: <FaReact /> },
   { name: "JavaScript", percent: 61, color: "bg-yellow-400", icon: <FaJs /> },
@@ -134,16 +134,19 @@ const coreFrontend: Skill[] = [
   { name: "CSS3", percent: 75, color: "bg-blue-500", icon: <FaCss3Alt /> },
 ];
 
-const backendAndData: Skill[] = [
+const backendSkills: Skill[] = [
   { name: "PHP", percent: 51, color: "bg-indigo-500", icon: <FaPhp /> },
   { name: "Node.js", percent: 44, color: "bg-green-500", icon: <FaNodeJs /> },
   { name: "Python", percent: 47, color: "bg-indigo-400", icon: <FaPython /> },
   { name: "Java", percent: 42, color: "bg-amber-500", icon: <FaJava /> },
-  { name: "MySQL", percent: 46, color: "bg-sky-500", icon: <SiMysql /> },
-  { name: "PostgreSQL", percent: 54, color: "bg-blue-600", icon: <SiPostgresql /> },
 ];
 
-const toolsAndCms: Skill[] = [
+const databaseSkills: Skill[] = [
+  { name: "MySQL", percent: 56, color: "bg-sky-500", icon: <SiMysql /> },
+  { name: "PostgreSQL", percent: 44, color: "bg-blue-600", icon: <SiPostgresql /> },
+];
+
+const toolsSkills: Skill[] = [
   { name: "WordPress", percent: 39, color: "bg-blue-500", icon: <FaWordpress /> },
   { name: "Git", percent: 44, color: "bg-red-500", icon: <FaGitAlt /> },
   { name: "GitHub", percent: 53, color: "bg-gray-700", icon: <FaGithub /> },
@@ -177,25 +180,42 @@ export default function Skills() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
-          {[...coreFrontend, ...backendAndData, ...toolsAndCms].map((skill, i) => (
-            <Reveal key={skill.name} delay={i * 0.05}>
-              <div className="group relative flex flex-col items-center gap-4 p-6 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)]">
-                <div className="w-16 h-16 flex items-center justify-center rounded-xl bg-slate-50 dark:bg-white/5 border border-black/5 dark:border-white/5 group-hover:scale-110 transition-transform duration-300">
-                  <div className="text-4xl text-purple-500 dark:text-purple-400">
-                    {skill.icon}
-                  </div>
-                </div>
-                <div className="flex flex-col items-center text-center">
-                  <span className="text-sm font-bold text-slate-700 dark:text-white uppercase tracking-wider">
-                    {skill.name}
-                  </span>
-                  <span className="text-[10px] font-black text-purple-500 mt-1">
-                    {skill.percent}%
-                  </span>
-                </div>
+        <div className="flex flex-col gap-24">
+          {[
+            { title: "Frontend Development", skills: frontendSkills },
+            { title: "Backend Development", skills: backendSkills },
+            { title: "Databases", skills: databaseSkills },
+            { title: "Tools & Design", skills: toolsSkills },
+          ].map((category, categoryIdx) => (
+            <div key={category.title} className="flex flex-col gap-10">
+              <Reveal delay={categoryIdx * 0.1}>
+                <h3 className="text-2xl font-black text-slate-800 dark:text-white/80 uppercase tracking-widest border-l-4 border-cyan-500 pl-6">
+                  {category.title}
+                </h3>
+              </Reveal>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                {category.skills.map((skill, i) => (
+                  <Reveal key={skill.name} delay={i * 0.05}>
+                    <div className="group relative flex flex-col items-center gap-4 p-6 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)]">
+                      <div className="w-16 h-16 flex items-center justify-center rounded-xl bg-slate-50 dark:bg-white/5 border border-black/5 dark:border-white/5 group-hover:scale-110 transition-transform duration-300">
+                        <div className="text-4xl text-purple-500 dark:text-purple-400">
+                          {skill.icon}
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-center text-center">
+                        <span className="text-sm font-bold text-slate-700 dark:text-white uppercase tracking-wider">
+                          {skill.name}
+                        </span>
+                        <span className="text-[10px] font-black text-purple-500 mt-1">
+                          {skill.percent}%
+                        </span>
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
               </div>
-            </Reveal>
+            </div>
           ))}
         </div>
       </div>
