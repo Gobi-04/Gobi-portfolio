@@ -1,7 +1,7 @@
 export default function Divider() {
   return (
-    <div className="my-24 flex justify-center">
-      <div className="h-px w-24 bg-gray-200 dark:bg-neutral-800" />
+    <div className="my-32 flex justify-center">
+      <div className="h-px w-32 bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent" />
     </div>
   );
 }

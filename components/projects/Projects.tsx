@@ -11,13 +11,6 @@ type Project = {
 };
 
 const projects: Project[] = [
-  // {
-  //   title: "Threat-Pulse",
-  //   description:
-  //     "Cyber attack tracking platform with clean dashboards and real-world security insights.",
-  //   image: "/projects/threat-pulse.webp",
-  //   stack: ["Next.js", "Tailwind", "PostgreSQL"],
-  // },
   {
     title: "ServiceFinder",
     description:
@@ -32,13 +25,6 @@ const projects: Project[] = [
     image: "/projects/security-guard.png",
     stack: ["HTML", "CSS", "JS", "Python", "MySQL"],
   },
-  // {
-  //   title: "Food Delivery App",
-  //   description:
-  //     "End-to-end food ordering system with cart, orders, and restaurant workflows.",
-  //   image: "/projects/food-delivery.avif",
-  //   stack: ["Next.js", "Tailwind", "MySQL"],
-  // },
   {
     title: "Face Attendance System",
     description:
@@ -46,7 +32,6 @@ const projects: Project[] = [
     image: "/projects/face-attendance.jpg",
     stack: ["Python", "OpenCV", "Flask"],
   },
-
   {
     title: "Continental Pipes",
     description:
@@ -54,74 +39,53 @@ const projects: Project[] = [
     image: "/projects/pro-port.png",
     stack: ["Next.js", "Tailwind", "MySQL"],
   },
-  // {
-  //   title: "Blog Platform",
-  //   description:
-  //     "Multi-user blog system with authentication, post creation, and content management.",
-  //   image: "/projects/blog.jpg",
-  //   stack: ["Next.js", "PHP", "MySQL"],
-  // },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-32 bg-transparent relative overflow-hidden">
-      <div className="relative z-10">
+    <section id="projects" className="py-32 px-6 flex flex-col items-center justify-center bg-transparent z-10 relative">
+      <div className="max-w-7xl w-full">
         <Reveal>
-          <h2 className="text-5xl font-black mb-20 text-center bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent">
-            Projects
-          </h2>
+          <div className="flex flex-col items-center mb-24">
+            <h2 className="text-sm font-bold uppercase tracking-[0.5em] text-cyan-400 mb-6">
+              Featured Work
+            </h2>
+            <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white text-center leading-tight">
+              Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">Projects</span>
+            </h1>
+          </div>
         </Reveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {projects.map((project, i) => (
-            <Reveal key={project.title} delay={i * 0.06}>
-              <div
-                className="
-                  group h-full flex flex-col
-                  rounded-3xl overflow-hidden
-                  border border-gray-200/50 dark:border-neutral-800/50
-                  bg-white/40 dark:bg-neutral-900/40
-                  backdrop-blur-md
-                  shadow-lg hover:shadow-2xl
-                  transition-all duration-500
-                  hover:-translate-y-2
-                  hover:border-purple-400/60
-                "
-              >
-                {/* IMAGE */}
-                <div className="relative h-64 w-full overflow-hidden">
+            <Reveal key={project.title} delay={i * 0.1}>
+              <div className="group relative flex flex-col rounded-3xl overflow-hidden bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-[0_0_80px_rgba(168,85,247,0.1)]">
+                {/* Image Container */}
+                <div className="relative h-[300px] w-full overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60" />
                 </div>
 
-                {/* CONTENT */}
-                <div className="flex flex-col flex-1 p-8">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
-                    {project.title}
-                  </h3>
+                {/* Content */}
+                <div className="p-10 flex flex-col h-full">
+                  <div className="flex justify-between items-start mb-6">
+                    <h1 className="text-3xl font-black text-slate-900 dark:text-white">{project.title}</h1>
+                  </div>
 
-                  <p className="text-base text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                  <p className="text-slate-500 dark:text-gray-400 text-lg leading-relaxed mb-10 line-clamp-2">
                     {project.description}
                   </p>
 
-                  {/* STACK */}
                   <div className="flex flex-wrap gap-3 mt-auto">
                     {project.stack.map((tech) => (
                       <span
                         key={tech}
-                        className="
-                          text-sm px-4 py-2 rounded-full
-                          text-purple-700 dark:text-purple-300
-                          font-medium
-                          border border-purple-200/50 dark:border-purple-800/50
-                        "
+                        className="text-[11px] font-bold text-cyan-400/80 border border-cyan-400/20 px-4 py-1.5 rounded-full bg-cyan-400/5 backdrop-blur-sm"
                       >
                         {tech}
                       </span>
@@ -133,7 +97,6 @@ export default function Projects() {
           ))}
         </div>
       </div>
-
-    </section >
+    </section>
   );
 }

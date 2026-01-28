@@ -11,18 +11,15 @@ export const metadata = {
 
 };
 
-import Scene from "@/components/hero/Scene";
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className} suppressHydrationWarning>
+    <html lang="en" className="dark">
+      <body className={`${inter.className} bg-[#030014]`} suppressHydrationWarning>
         <ThemeProvider>
-          <Scene />
           {children}
         </ThemeProvider>
       </body>

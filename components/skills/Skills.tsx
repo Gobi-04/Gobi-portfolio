@@ -4,6 +4,7 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import Reveal from "@/components/animation/Reveal";
 import Section from "@/components/layout/Section";
+import { useTheme } from "@/components/theme/ThemeProvider";
 
 import {
   FaReact,
@@ -70,53 +71,51 @@ function SkillCard({ skill }: { skill: Skill }) {
       ref={ref}
       className="
         h-full
-        rounded-3xl
+        rounded-2xl
         p-8
-        border
-        backdrop-blur-md
-        bg-white/40 dark:bg-neutral-900/40
-        border-indigo-200/50 dark:border-indigo-800/50
-        shadow-xl hover:shadow-2xl
+        border border-white/10
+        bg-white/5
+        backdrop-blur-xl
         transition-all duration-500
-        hover:-translate-y-3
-        hover:border-indigo-400/80
-        hover:scale-105
+        hover:-translate-y-2
+        hover:border-indigo-500/50
+        hover:shadow-[0_0_20px_rgba(72,52,212,0.2)]
       "
     >
       {/* HEADER */}
       <div className="flex items-center gap-4 mb-6">
         <div
           className="
-            h-16 w-16
+            h-14 w-14
             flex items-center justify-center
-            rounded-2xl
-            bg-gradient-to-br from-indigo-500/20 to-purple-500/20 dark:from-indigo-500/30 dark:to-purple-500/30
-            text-2xl
-            border border-indigo-200/50 dark:border-indigo-700/50
+            rounded-xl
+            bg-white/5
+            text-2xl text-indigo-400
+            border border-white/10
           "
         >
           {skill.icon}
         </div>
 
         <div className="flex-1">
-          <p className="font-bold text-lg text-gray-900 dark:text-white">{skill.name}</p>
-          <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
-            Proficiency
+          <p className="font-bold text-lg text-white">{skill.name}</p>
+          <p className="text-xs text-indigo-200/50 font-medium">
+            Signal Strength
           </p>
         </div>
 
-        <span className="text-lg font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+        <span className="text-lg font-black text-white/90">
           {count}%
         </span>
       </div>
 
       {/* PROGRESS BAR */}
-      <div className="h-3 w-full rounded-full bg-gray-200 dark:bg-neutral-700 overflow-hidden border border-gray-300/50 dark:border-neutral-600/50">
+      <div className="h-2 w-full rounded-full bg-white/5 overflow-hidden">
         <div
-          className={`h-full rounded-full ${skill.color} shadow-lg`}
+          className={`h-full rounded-full ${skill.color} shadow-[0_0_10px_rgba(255,255,255,0.2)]`}
           style={{
             width: isInView ? `${count}%` : "0%",
-            transition: "width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
+            transition: "width 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
           }}
         />
       </div>
@@ -155,52 +154,57 @@ const toolsAndCms: Skill[] = [
 /* ================= SECTION ================= */
 
 export default function Skills() {
-  return (
-    <Section
-      id="skills"
-      className="bg-transparent relative overflow-hidden"
-    >
-      <div className="relative z-10">
-        <div className="max-w-6xl mx-auto px-6">
+  const { theme } = useTheme();
 
+  return (
+    <section id="skills" className="py-32 px-6 flex flex-col items-center justify-center bg-transparent z-10 relative">
+      <div className="max-w-7xl w-full">
+        <div className="flex flex-col items-center mb-24 text-center">
           <Reveal>
-            <h2 className="text-5xl font-black mb-20 text-center bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Skills
+            <h2 className="text-sm font-bold uppercase tracking-[0.5em] text-cyan-500 mb-6">
+              Technical Stack
             </h2>
           </Reveal>
+          <Reveal delay={0.2}>
+            <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight mb-8">
+              Making apps with <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">modern technologies</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.3}>
+            <p className="text-xl text-slate-500 dark:text-gray-400 max-w-2xl font-medium">
+              Never miss a task, deadline or idea. I use a diverse set of tools to build high-performance applications.
+            </p>
+          </Reveal>
+        </div>
 
-          {/* CORE */}
-          <Reveal><h3 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">Core Frontend</h3></Reveal>
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            {coreFrontend.map((s, i) => (
-              <Reveal key={s.name} delay={i * 0.05}>
-                <SkillCard skill={s} />
-              </Reveal>
-            ))}
-          </div>
-
-          {/* BACKEND */}
-          <Reveal><h3 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">Backend & Databases</h3></Reveal>
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            {backendAndData.map((s, i) => (
-              <Reveal key={s.name} delay={i * 0.05}>
-                <SkillCard skill={s} />
-              </Reveal>
-            ))}
-          </div>
-
-          {/* TOOLS */}
-          <Reveal><h3 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">CMS & Tools</h3></Reveal>
-          <div className="grid md:grid-cols-3 gap-8">
-            {toolsAndCms.map((s, i) => (
-              <Reveal key={s.name} delay={i * 0.05}>
-                <SkillCard skill={s} />
-              </Reveal>
-            ))}
-          </div>
-
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+          {[...coreFrontend, ...backendAndData, ...toolsAndCms].map((skill, i) => (
+            <Reveal key={skill.name} delay={i * 0.05}>
+              <div className="group relative flex flex-col items-center gap-4 p-6 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)]">
+                <div className="w-16 h-16 flex items-center justify-center rounded-xl bg-slate-50 dark:bg-white/5 border border-black/5 dark:border-white/5 group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-4xl text-purple-500 dark:text-purple-400">
+                    {skill.icon}
+                  </div>
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <span className="text-sm font-bold text-slate-700 dark:text-white uppercase tracking-wider">
+                    {skill.name}
+                  </span>
+                  <span className="text-[10px] font-black text-purple-500 mt-1">
+                    {skill.percent}%
+                  </span>
+                </div>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
-    </Section>
+
+      <div className="w-full h-full absolute pointer-events-none">
+        <div className="w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover">
+          <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(72,52,212,0.2)_0%,transparent_70%)]" />
+        </div>
+      </div>
+    </section>
   );
 }

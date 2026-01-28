@@ -1,101 +1,109 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Reveal from "@/components/animation/Reveal";
-import { FaGithub, FaLinkedin, FaArrowRight } from "react-icons/fa";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useTheme } from "@/components/theme/ThemeProvider";
+import { useRef, useEffect, useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
+import { Environment } from "@react-three/drei";
+import HeroLandscape from "./HeroLandscape";
 
 export default function Hero() {
   const { theme } = useTheme();
+  const isDark = theme === "dark";
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Scroll parallax
+  const { scrollY, scrollYProgress } = useScroll();
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (latest) => {
+      setScrollProgress(latest);
+    });
+    return () => unsubscribe();
+  }, [scrollYProgress]);
 
   return (
-    <section id="hero" className="relative min-h-[100vh] flex items-center overflow-hidden bg-transparent pt-36 pb-20">
-      {/* ================= CONTENT ================= */}
-      <div className="max-w-5xl mx-auto px-6 w-full relative z-10">
-        <div className="flex flex-col items-center">
+    <section ref={containerRef} id="hero" className="relative h-[100vh] w-full flex flex-col items-center justify-center overflow-hidden bg-transparent">
 
-          {/* COMPACT BORDERED TAG */}
-          <Reveal>
-            <div className={`
-              inline-flex items-center gap-3 px-4 py-1.5 rounded-full 
-              border border-indigo-500/20 dark:border-white/10 
-              bg-white/40 dark:bg-white/5 backdrop-blur-md mb-8
-            `}>
-              <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-indigo-600 dark:text-indigo-400">
-                Full Stack Architect
-              </span>
-            </div>
-          </Reveal>
+      {/* 3D SCROLL-BASED LANDSCAPE BACKGROUND */}
+      <div className="fixed inset-0 z-0">
+        <Canvas
+          shadows
+          gl={{
+            antialias: true,
+            alpha: false,
+            powerPreference: "high-performance",
+          }}
+          camera={{
+            position: [
+              Math.sin(scrollProgress * 2) * 2,
+              2 - scrollProgress * 5,
+              15 - scrollProgress * 10
+            ],
+            fov: 50,
+          }}
+        >
+          <Suspense fallback={null}>
+            <HeroLandscape />
+          </Suspense>
+        </Canvas>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white dark:via-black/30 dark:to-black pointer-events-none" />
+      </div>
 
-          {/* COMPACT HYPER-BOLD TITLE */}
-          <Reveal delay={0.2}>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-gray-950 dark:text-white leading-[0.85] text-center">
-              Elevating <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-300 dark:to-white">
-                Digital Ideas.
-              </span>
-            </h1>
-          </Reveal>
+      {/* CENTERED CONTENT */}
+      <div className="max-w-4xl w-full px-6 flex flex-col items-center justify-center text-center z-10 gap-8 relative">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col gap-6 items-center"
+        >
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-3 px-6 py-2 rounded-full border border-purple-500/30 bg-purple-500/5 backdrop-blur-xl w-fit"
+          >
+            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            <span className="text-cyan-400 text-xs font-bold uppercase tracking-[0.2em]">
+              Full Stack Developer
+            </span>
+          </motion.div>
 
-          {/* REFINED SUBTEXT */}
-          <Reveal delay={0.4}>
-            <p className="mt-8 text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl text-center leading-relaxed font-medium">
-              I engineer <span className="text-gray-950 dark:text-white font-bold decoration-indigo-500 decoration-2 underline-offset-4 underline">singular products</span> that bridge the gap between imagination and technical reality.
-            </p>
-          </Reveal>
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white leading-tight tracking-tighter">
+            Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-500">Gobinath</span>
+          </h1>
 
-          {/* COMPACT ACTION BUTTONS */}
-          <Reveal delay={0.6}>
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
-              <a
-                href="#projects"
-                className="
-                  group relative px-10 py-4
-                  bg-gray-950 dark:bg-white text-white dark:text-black font-bold text-lg
-                  rounded-2xl transition-all duration-300
-                  hover:scale-105 shadow-xl hover:shadow-indigo-500/20
-                "
-              >
-                <span className="flex items-center gap-3">
-                  See Projects <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </span>
-              </a>
+          {/* Description */}
+          <p className="text-lg md:text-xl text-slate-500 dark:text-gray-400 max-w-2xl leading-relaxed font-medium">
+            Building digital experiences that combine innovative engineering with elegant design.
+            Focused on creating impactful full-stack applications.
+          </p>
 
-              <a
-                href="/resume.pdf"
-                className="
-                  px-10 py-4
-                  rounded-2xl font-bold text-lg
-                  border-2 border-gray-950/10 dark:border-white/10
-                  text-gray-950 dark:text-white
-                  hover:bg-white dark:hover:bg-white/10
-                  transition-all duration-300
-                "
-              >
-                Download Resume
-              </a>
-            </div>
-          </Reveal>
-
-          {/* SOCIAL LINKS (MINIMAL) */}
-          <Reveal delay={0.8}>
-            <div className="mt-16 flex items-center justify-center gap-10">
-              {[
-                { icon: <FaGithub />, link: "https://github.com/Gobi-04" },
-                { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/gobinath-s-777283298/" },
-              ].map((item, i) => (
-                <a
-                  key={i}
-                  href={item.link}
-                  className="text-2xl text-gray-400 hover:text-indigo-600 dark:hover:text-white transition-all hover:scale-125"
-                >
-                  {item.icon}
-                </a>
-              ))}
-            </div>
-          </Reveal>
-        </div>
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="flex flex-col sm:flex-row gap-6 mt-8"
+          >
+            <a
+              href="#projects"
+              className="px-12 py-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-black font-bold uppercase tracking-widest text-xs hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
+            >
+              My Projects
+            </a>
+            <a
+              href="#contact"
+              className="px-12 py-4 rounded-full border border-black/20 dark:border-white/20 text-slate-900 dark:text-white font-bold uppercase tracking-widest text-xs hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-300 text-center"
+            >
+              Contact Me
+            </a>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
