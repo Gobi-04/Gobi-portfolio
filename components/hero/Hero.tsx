@@ -104,6 +104,14 @@ export default function Hero() {
             >
               Contact Me
             </a>
+            <a
+              href="/resume.pdf"
+              download
+              className="px-10 py-4 rounded-full border border-purple-500/50 text-purple-600 dark:text-purple-400 font-bold uppercase tracking-widest text-xs hover:bg-purple-500/10 transition-all duration-300 text-center flex items-center justify-center gap-2"
+            >
+              <span>Resume</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+            </a>
           </motion.div>
         </motion.div>
 
