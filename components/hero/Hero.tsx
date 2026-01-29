@@ -3,7 +3,6 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useTheme } from "@/components/theme/ThemeProvider";
 import { useRef, useEffect, useState } from "react";
-import { useRef, useEffect, useState } from "react";
 
 export default function Hero() {
   const { theme } = useTheme();
