@@ -26,7 +26,7 @@ const experiences: ExperienceItem[] = [
   {
     role: "UI/UX Design Intern",
     company: "Phoenix",
-    duration: "Sep 2024 (15 Days)",
+    duration: "July 2025 (15 Days)",
     points: [
       "Completed intensive 15-day training focused on UI/UX design principles.",
       "Gained hands-on experience in wireframing and prototyping digital interfaces.",
