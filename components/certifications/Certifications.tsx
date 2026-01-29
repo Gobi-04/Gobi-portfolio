@@ -1,7 +1,7 @@
 "use client";
 import Reveal from "@/components/animation/Reveal";
 import Section from "@/components/layout/Section";
-import { FaCertificate, FaGoogle, FaIbm } from "react-icons/fa";
+import { FaAward, FaGoogle } from "react-icons/fa";
 
 type Certification = {
     id: number;
@@ -30,7 +30,7 @@ const certifications: Certification[] = [
         id: 3,
         title: "Design Thinking",
         issuer: "IBM",
-        icon: <FaIbm />,
+        icon: <FaAward />,
         color: "text-blue-600",
     }
 ];
