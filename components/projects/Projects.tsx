@@ -58,8 +58,8 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {projects.map((project, i) => (
-            <Reveal key={project.title} delay={i * 0.1}>
-              <div className="group relative flex flex-col rounded-3xl overflow-hidden bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-[0_0_80px_rgba(168,85,247,0.1)]">
+            <Reveal key={project.title} delay={i * 0.1} className="h-full">
+              <div className="group relative flex flex-col h-full rounded-3xl overflow-hidden bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-[0_0_80px_rgba(168,85,247,0.1)]">
                 {/* Image Container */}
                 <div className="relative h-[300px] w-full overflow-hidden">
                   <Image

@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Reveal from "@/components/animation/Reveal";
 import Section from "@/components/layout/Section";
 import { useTheme } from "@/components/theme/ThemeProvider";
@@ -197,20 +197,47 @@ export default function Skills() {
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
                 {category.skills.map((skill, i) => (
                   <Reveal key={skill.name} delay={i * 0.05}>
-                    <div className="group relative flex flex-col items-center gap-4 p-6 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)]">
-                      <div className="w-16 h-16 flex items-center justify-center rounded-xl bg-slate-50 dark:bg-white/5 border border-black/5 dark:border-white/5 group-hover:scale-110 transition-transform duration-300">
-                        <div className="text-4xl text-purple-500 dark:text-purple-400">
-                          {skill.icon}
+                    <div className="group relative flex flex-col items-center gap-4 p-6 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] overflow-hidden">
+                      {/* Dynamic Glow Background */}
+                      <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl blur-2xl ${skill.color} z-0`} />
+
+                      <motion.div
+                        animate={{ y: [0, -5, 0] }}
+                        transition={{
+                          duration: 3 + Math.random() * 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: i * 0.1
+                        }}
+                        className="relative z-10 w-full flex flex-col items-center gap-4"
+                      >
+                        <div className="w-16 h-16 flex items-center justify-center rounded-xl bg-slate-50 dark:bg-white/5 border border-black/5 dark:border-white/5 group-hover:scale-110 transition-transform duration-300 relative">
+                          {/* Inner Glow for Icon */}
+                          <div className={`absolute inset-0 blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 ${skill.color}`} />
+
+                          <div className="text-4xl text-purple-500 dark:text-purple-400 relative z-10 group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors duration-300">
+                            {skill.icon}
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex flex-col items-center text-center">
-                        <span className="text-sm font-bold text-slate-700 dark:text-white uppercase tracking-wider">
-                          {skill.name}
-                        </span>
-                        <span className="text-[10px] font-black text-purple-500 mt-1">
-                          {skill.percent}%
-                        </span>
-                      </div>
+                        <div className="flex flex-col items-center text-center">
+                          <span className="text-sm font-bold text-slate-700 dark:text-white uppercase tracking-wider group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+                            {skill.name}
+                          </span>
+                          <div className="flex items-center gap-1.5 mt-1">
+                            <div className="w-12 h-1 rounded-full bg-slate-100 dark:bg-white/10 overflow-hidden">
+                              <motion.div
+                                initial={{ width: 0 }}
+                                whileInView={{ width: `${skill.percent}%` }}
+                                transition={{ duration: 1, delay: 0.5 }}
+                                className={`h-full ${skill.color}`}
+                              />
+                            </div>
+                            <span className="text-[10px] font-black text-purple-500">
+                              {skill.percent}%
+                            </span>
+                          </div>
+                        </div>
+                      </motion.div>
                     </div>
                   </Reveal>
                 ))}
