@@ -8,6 +8,7 @@ type Project = {
   description: string;
   image: string;
   stack: string[];
+  link?: string;
 };
 
 const projects: Project[] = [
@@ -38,6 +39,7 @@ const projects: Project[] = [
       "E-Commerce site for selling pipes and fittings.",
     image: "/projects/pro-port.png",
     stack: ["Next.js", "Tailwind", "MySQL"],
+    link: "http://46.101.118.118",
   },
 ];
 
@@ -105,10 +107,22 @@ export default function Projects() {
                         ))}
                       </div>
 
-                      <button className="text-xs font-black uppercase tracking-widest text-purple-600 dark:text-purple-400 flex items-center gap-2 group/btn">
-                        View Details
-                        <span className="block w-6 h-[2px] bg-purple-600 dark:bg-purple-400 transform origin-left group-hover/btn:scale-x-150 transition-transform duration-300" />
-                      </button>
+                      {project.link ? (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs font-black uppercase tracking-widest text-purple-600 dark:text-purple-400 flex items-center gap-2 group/btn hover:opacity-80 transition-opacity"
+                        >
+                          View Live
+                          <span className="block w-6 h-[2px] bg-purple-600 dark:bg-purple-400 transform origin-left group-hover/btn:scale-x-150 transition-transform duration-300" />
+                        </a>
+                      ) : (
+                        <button className="text-xs font-black uppercase tracking-widest text-purple-600 dark:text-purple-400 flex items-center gap-2 group/btn">
+                          View Details
+                          <span className="block w-6 h-[2px] bg-purple-600 dark:bg-purple-400 transform origin-left group-hover/btn:scale-x-150 transition-transform duration-300" />
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
