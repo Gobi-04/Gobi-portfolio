@@ -24,15 +24,15 @@ const experiences: ExperienceItem[] = [
     stack: ["WordPress", "PHP", "Next.js", "Tailwind", "MySQL"],
   },
   {
-    role: "WordPress Developer Intern",
+    role: "UI/UX Design Intern",
     company: "Inofinity",
     duration: "Sep 2024 (15 Days)",
     points: [
-      "Completed intensive 15-day training and internship on WordPress ecosystems.",
-      "Gained practical experience in theme customization and site maintenance.",
-      "Handled basic troubleshooting and content management tasks for live sites.",
+      "Completed intensive 15-day training focused on UI/UX design principles.",
+      "Gained hands-on experience in wireframing and prototyping digital interfaces.",
+      "Learned user-centric design workflows and modern design tool implementations.",
     ],
-    stack: ["WordPress", "PHP", "CSS"],
+    stack: ["Figma", "Design Principles", "UI/UX"],
   },
 ];
 
