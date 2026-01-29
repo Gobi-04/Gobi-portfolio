@@ -44,44 +44,43 @@ export default function CustomCursor() {
 
     return (
         <>
-            {/* Outer Ring - Multi-layered for "glow" and "depth" */}
+            {/* Main Fluid Blob Cursor */}
             <motion.div
-                className="fixed top-0 left-0 w-8 h-8 rounded-full border border-purple-500/40 pointer-events-none z-[10000] hidden md:block mix-blend-difference"
+                className="fixed top-0 left-0 pointer-events-none z-[10000] hidden md:block"
                 style={{
                     x: cursorX,
                     y: cursorY,
                     translateX: "-50%",
                     translateY: "-50%",
                 }}
-                animate={{
-                    scale: isHovered ? 1.5 : 1,
-                    borderWidth: isHovered ? "1px" : "2px",
-                    opacity: isHovered ? 0.8 : 0.4,
-                }}
-                transition={{ type: "spring", damping: 15, stiffness: 150, mass: 0.6 }}
-            />
+            >
+                {/* Outer Glow / Ring */}
+                <motion.div
+                    className="rounded-full border border-purple-500/30"
+                    animate={{
+                        width: isHovered ? 80 : 40,
+                        height: isHovered ? 80 : 40,
+                        backgroundColor: isHovered ? "rgba(168, 85, 247, 0.05)" : "rgba(168, 85, 247, 0.02)",
+                        borderWidth: isHovered ? "1px" : "2px",
+                    }}
+                    transition={{ type: "spring", damping: 20, stiffness: 200 }}
+                />
 
-            {/* Inner Dot - Snappy and Precise */}
-            <motion.div
-                className="fixed top-0 left-0 w-1.5 h-1.5 bg-purple-500 rounded-full pointer-events-none z-[10001] hidden md:block"
-                style={{
-                    x: cursorX,
-                    y: cursorY,
-                    translateX: "-50%",
-                    translateY: "-50%",
-                }}
-                animate={{
-                    scale: isHovered ? 4 : 1,
-                    opacity: isHovered ? 0.3 : 1,
-                }}
-                transition={{ type: "spring", damping: 30, stiffness: 400 }}
-            />
+                {/* Inner Core */}
+                <motion.div
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-purple-500 rounded-full"
+                    animate={{
+                        scale: isHovered ? 0 : 1,
+                    }}
+                    transition={{ duration: 0.2 }}
+                />
+            </motion.div>
 
-            {/* Magnetic Glow - Very subtle and follows the cursor */}
-            <motion.div
-                className="fixed inset-0 pointer-events-none z-[-1] hidden md:block"
+            {/* Interaction Backdrop Glow (follows mouse but stays behind content) */}
+            <div
+                className="fixed inset-0 pointer-events-none z-[-1]"
                 style={{
-                    background: `radial-gradient(400px circle at ${cursorX}px ${cursorY}px, rgba(139, 92, 246, 0.02), transparent 80%)`,
+                    background: `radial-gradient(1000px circle at ${cursorX}px ${cursorY}px, rgba(139, 92, 246, 0.03), transparent 70%)`
                 }}
             />
         </>

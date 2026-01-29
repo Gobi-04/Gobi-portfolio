@@ -17,40 +17,30 @@ const fragmentShader = `
   uniform vec2 uMouse;
   varying vec2 vUv;
 
-  vec3 palette(float t) {
-      vec3 a = vec3(0.5, 0.5, 0.5);
-      vec3 b = vec3(0.5, 0.5, 0.5);
-      vec3 c = vec3(1.0, 1.0, 1.0);
-      vec3 d = vec3(0.263, 0.416, 0.557);
-      return a + b * cos(6.28318 * (c * t + d));
-  }
-
   void main() {
-      vec2 uv = vUv * 2.0 - 1.0;
-      vec2 uv0 = uv;
-      vec3 finalColor = vec3(0.0);
-      
-      for (float i = 0.0; i < 4.0; i++) {
-          uv = fract(uv * 1.5) - 0.5;
-
-          float d = length(uv) * exp(-length(uv0));
-
-          vec3 col = palette(length(uv0) + i*.4 + uTime*.4);
-
-          d = sin(d*8. + uTime)/8.;
-          d = abs(d);
-
-          d = pow(0.01 / d, 1.2);
-
-          finalColor += col * d;
-      }
-      
-      // Integrate mouse interactivity
-      float mouseDist = length(vUv - uMouse);
-      float glow = smoothstep(0.5, 0.0, mouseDist);
-      finalColor += glow * vec3(0.2, 0.1, 0.4) * 0.5;
-
-      gl_FragColor = vec4(finalColor * 0.15, 1.0);
+    vec2 uv = vUv;
+    float time = uTime * 0.3;
+    
+    // Create organic movement using sine waves
+    float n1 = sin(uv.x * 3.0 + time) * cos(uv.y * 2.0 - time * 0.5);
+    float n2 = sin(uv.y * 4.0 - time * 0.8) * cos(uv.x * 3.0 + time * 0.4);
+    
+    // Deep vibrant colors
+    vec3 color1 = vec3(0.08, 0.0, 0.2); // Deep Purple
+    vec3 color2 = vec3(0.0, 0.05, 0.15); // Deep Blue
+    vec3 color3 = vec3(0.1, 0.0, 0.05); // Deep Magenta
+    
+    // Mix based on coordinates and noise
+    float mixer = (uv.x + uv.y) * 0.5 + n1 * 0.2 + n2 * 0.2;
+    vec3 finalColor = mix(color1, color2, clamp(mixer, 0.0, 1.0));
+    finalColor = mix(finalColor, color3, clamp(n1 * n2 * 2.0, 0.0, 1.0));
+    
+    // Mouse Glow
+    float dist = length(uv - uMouse);
+    float mouseGlow = smoothstep(0.4, 0.0, dist);
+    finalColor += mouseGlow * vec3(0.1, 0.05, 0.2);
+    
+    gl_FragColor = vec4(finalColor, 1.0);
   }
 `;
 
