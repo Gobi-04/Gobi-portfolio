@@ -3,10 +3,7 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useTheme } from "@/components/theme/ThemeProvider";
 import { useRef, useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import { Environment } from "@react-three/drei";
-import HeroLandscape from "./HeroLandscape";
+import { useRef, useEffect, useState } from "react";
 
 export default function Hero() {
   const { theme } = useTheme();
@@ -26,31 +23,6 @@ export default function Hero() {
 
   return (
     <section ref={containerRef} id="hero" className="relative h-[100vh] w-full flex flex-col items-center justify-center overflow-hidden bg-transparent">
-
-      {/* 3D SCROLL-BASED LANDSCAPE BACKGROUND */}
-      <div className="fixed inset-0 z-0">
-        <Canvas
-          shadows
-          gl={{
-            antialias: true,
-            alpha: false,
-            powerPreference: "high-performance",
-          }}
-          camera={{
-            position: [
-              Math.sin(scrollProgress * 2) * 2,
-              2 - scrollProgress * 5,
-              15 - scrollProgress * 10
-            ],
-            fov: 50,
-          }}
-        >
-          <Suspense fallback={null}>
-            <HeroLandscape />
-          </Suspense>
-        </Canvas>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white dark:via-black/30 dark:to-black pointer-events-none" />
-      </div>
 
       {/* CONTENT CONTAINER */}
       <div className="max-w-7xl w-full px-6 grid grid-cols-1 lg:grid-cols-2 items-center justify-center z-10 gap-12 relative pt-20 lg:pt-0">

@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import Background from "@/components/ui/Background";
 import Noise from "@/components/ui/Noise";
 import CustomCursor from "@/components/ui/CustomCursor";
 import SmoothScroll from "@/components/ui/SmoothScroll";
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-[#030014] relative selection:bg-purple-500/30`} suppressHydrationWarning>
         <ThemeProvider>
           <SmoothScroll>
+            <Background />
             <CustomCursor />
             <Noise />
             {children}
