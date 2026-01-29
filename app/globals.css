@@ -10,10 +10,21 @@ html {
 
 html.dark {
   @apply bg-[#030014] text-gray-100;
+  color-scheme: dark;
 }
 
 html.light {
   @apply bg-slate-50 text-slate-900;
+  color-scheme: light;
+}
+
+/* Impactful Typography */
+h1,
+h2,
+h3,
+h4 {
+  @apply tracking-tighter font-black;
+  text-wrap: balance;
 }
 
 body {
@@ -105,4 +116,43 @@ html {
 .animate-gradient-shift {
   background-size: 200% auto;
   animation: gradient-shift-text 4s ease infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+/* Lenis Smooth Scroll */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

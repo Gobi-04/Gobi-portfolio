@@ -1,14 +1,15 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
-import Footer from "@/components/footer/Footer";
+import Noise from "@/components/ui/Noise";
+import CustomCursor from "@/components/ui/CustomCursor";
+import SmoothScroll from "@/components/ui/SmoothScroll";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Gobinath | Full Stack Developer",
   description: "Next.js Full Stack Developer Portfolio",
-
 };
 
 export default function RootLayout({
@@ -18,9 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} bg-[#030014]`} suppressHydrationWarning>
+      <body className={`${inter.className} bg-[#030014] relative selection:bg-purple-500/30`} suppressHydrationWarning>
         <ThemeProvider>
-          {children}
+          <SmoothScroll>
+            <CustomCursor />
+            <Noise />
+            {children}
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

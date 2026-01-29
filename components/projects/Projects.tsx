@@ -49,11 +49,11 @@ export default function Projects() {
       <div className="max-w-7xl w-full">
         <Reveal>
           <div className="flex flex-col items-center mb-24">
-            <h2 className="text-sm font-bold uppercase tracking-[0.5em] text-cyan-400 mb-6">
+            <h2 className="text-sm font-bold uppercase tracking-[0.5em] text-cyan-400 mb-6 font-geist">
               Featured Work
             </h2>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white text-center leading-tight">
-              Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">Projects</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white text-center leading-[1.1] tracking-tighter">
+              Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-cyan-400 animate-gradient-shift">Projects</span>
             </h1>
           </div>
         </Reveal>

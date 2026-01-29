@@ -32,8 +32,8 @@ export default function About() {
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
-          <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight mb-12 text-center md:text-left">
-            Turning <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">ideas</span> into <span className="italic">impactful</span> digital solutions.
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white leading-[1.1] mb-16 text-center md:text-left tracking-tighter">
+            Turning <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-cyan-400 animate-gradient-shift">ideas</span> into <span className="italic">impactful</span> digital solutions.
           </h1>
         </Reveal>
 

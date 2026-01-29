@@ -85,8 +85,8 @@ export default function Certifications() {
                         <h2 className="text-sm font-bold uppercase tracking-[0.5em] text-purple-500 mb-6 font-geist">
                             Achievements
                         </h2>
-                        <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white leading-tight">
-                            Certifications
+                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tighter">
+                            Certifi<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-cyan-400 animate-gradient-shift">cations</span>
                         </h1>
                     </div>
                 </Reveal>

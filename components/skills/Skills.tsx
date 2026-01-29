@@ -169,8 +169,8 @@ export default function Skills() {
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight mb-8">
-              Making apps with <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">modern technologies</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white leading-[1.1] mb-8 tracking-tighter">
+              Making apps with <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-cyan-400 animate-gradient-shift">modern technologies</span>
             </h1>
           </Reveal>
           <Reveal delay={0.3}>

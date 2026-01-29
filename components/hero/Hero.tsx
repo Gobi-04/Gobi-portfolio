@@ -75,42 +75,40 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white leading-tight tracking-tighter">
-            Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-500">Gobinath</span>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-slate-900 dark:text-white leading-[0.9] tracking-tighter mb-4">
+            Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-500 animate-gradient-shift">Gobinath</span>
           </h1>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-slate-500 dark:text-gray-400 max-w-2xl leading-relaxed font-medium">
+          <p className="text-xl md:text-2xl text-slate-500 dark:text-gray-400 max-w-xl leading-relaxed font-medium">
             Building digital experiences that combine innovative engineering with elegant design.
-            Focused on creating impactful full-stack applications.
           </p>
 
           {/* CTA */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-6 mt-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="flex flex-wrap gap-6 mt-8"
           >
             <a
               href="#projects"
-              className="px-10 py-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-black font-bold uppercase tracking-widest text-xs hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
+              className="px-12 py-5 rounded-full bg-slate-900 dark:bg-white text-white dark:text-black font-black uppercase tracking-widest text-[10px] hover:bg-slate-800 dark:hover:bg-gray-200 transition-all duration-500 transform hover:scale-105 shadow-2xl shadow-purple-500/20"
             >
-              My Projects
+              Selected Work
             </a>
             <a
               href="#contact"
-              className="px-10 py-4 rounded-full border border-black/20 dark:border-white/20 text-slate-900 dark:text-white font-bold uppercase tracking-widest text-xs hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-300 text-center"
+              className="px-12 py-5 rounded-full border-2 border-slate-900/10 dark:border-white/10 text-slate-900 dark:text-white font-black uppercase tracking-widest text-[10px] hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-500 text-center"
             >
-              Contact Me
+              Contact
             </a>
             <a
               href="/resume.pdf"
               download
-              className="px-10 py-4 rounded-full border border-purple-500/50 text-purple-600 dark:text-purple-400 font-bold uppercase tracking-widest text-xs hover:bg-purple-500/10 transition-all duration-300 text-center flex items-center justify-center gap-2"
+              className="px-12 py-5 rounded-full border-2 border-purple-500/20 text-purple-600 dark:text-purple-400 font-black uppercase tracking-widest text-[10px] hover:bg-purple-500/10 transition-all duration-500 text-center flex items-center justify-center gap-2"
             >
-              <span>Resume</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+              Resume
             </a>
           </motion.div>
         </motion.div>
