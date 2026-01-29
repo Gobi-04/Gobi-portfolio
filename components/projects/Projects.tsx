@@ -63,6 +63,17 @@ export default function Projects() {
             <Reveal key={project.title} delay={i * 0.1} className="h-full">
               <div className="group relative h-full flex flex-col rounded-[2rem] overflow-hidden bg-slate-50 dark:bg-white/5 border border-black/5 dark:border-white/10 hover:border-purple-500/50 transition-all duration-500 shadow-sm hover:shadow-[0_0_50px_rgba(168,85,247,0.15)]">
 
+                {/* Absolute Link Overlay */}
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 z-30 cursor-pointer"
+                    aria-label={`View ${project.title}`}
+                  />
+                )}
+
                 {/* Image Container with Overlay */}
                 <div className="relative h-[220px] w-full overflow-hidden">
                   <Image
@@ -107,22 +118,10 @@ export default function Projects() {
                         ))}
                       </div>
 
-                      {project.link ? (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs font-black uppercase tracking-widest text-purple-600 dark:text-purple-400 flex items-center gap-2 group/btn hover:opacity-80 transition-opacity"
-                        >
-                          View Live
-                          <span className="block w-6 h-[2px] bg-purple-600 dark:bg-purple-400 transform origin-left group-hover/btn:scale-x-150 transition-transform duration-300" />
-                        </a>
-                      ) : (
-                        <button className="text-xs font-black uppercase tracking-widest text-purple-600 dark:text-purple-400 flex items-center gap-2 group/btn">
-                          View Details
-                          <span className="block w-6 h-[2px] bg-purple-600 dark:bg-purple-400 transform origin-left group-hover/btn:scale-x-150 transition-transform duration-300" />
-                        </button>
-                      )}
+                      <div className="text-xs font-black uppercase tracking-widest text-purple-600 dark:text-purple-400 flex items-center gap-2 group/btn">
+                        {project.link ? "Launch Site" : "View Details"}
+                        <span className="block w-6 h-[2px] bg-purple-600 dark:bg-purple-400 transform origin-left group-hover/btn:scale-x-150 transition-transform duration-300" />
+                      </div>
                     </div>
                   </div>
                 </div>
