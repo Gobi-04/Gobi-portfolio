@@ -5,7 +5,7 @@ import Skills from "@/components/skills/Skills";
 import Projects from "@/components/projects/Projects";
 import Education from "@/components/education/Education";
 import Experience from "@/components/experience/Experience";
-import Testimonials from "@/components/testimonials/Testimonials";
+import Certifications from "@/components/certifications/Certifications";
 import ContactForm from "@/components/contact/ContactForm";
 import Footer from "@/components/footer/Footer";
 import Divider from "@/components/layout/Divider";
@@ -21,7 +21,7 @@ export default function Home() {
         <Projects />
         <Education />
         <Experience />
-        <Testimonials />
+        <Certifications />
         <ContactForm />
         <Footer />
       </div>
