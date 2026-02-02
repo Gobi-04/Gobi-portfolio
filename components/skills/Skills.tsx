@@ -160,16 +160,16 @@ export default function Skills() {
   const { theme } = useTheme();
 
   return (
-    <section id="skills" className="py-32 px-6 flex flex-col items-center justify-center bg-transparent z-10 relative">
+    <section id="skills" className="py-20 md:py-32 px-6 flex flex-col items-center justify-center bg-transparent z-10 relative">
       <div className="max-w-7xl w-full">
-        <div className="flex flex-col items-center mb-24 text-center">
+        <div className="flex flex-col items-center mb-16 md:mb-24 text-center">
           <Reveal>
             <h2 className="text-sm font-bold uppercase tracking-[0.5em] text-cyan-500 mb-6">
               Technical Stack
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white leading-[1.1] mb-8 tracking-tighter">
+            <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white leading-[1.1] mb-8 tracking-tighter">
               Making apps with <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-cyan-400 animate-gradient-shift">modern technologies</span>
             </h1>
           </Reveal>
@@ -197,7 +197,7 @@ export default function Skills() {
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
                 {category.skills.map((skill, i) => (
                   <Reveal key={skill.name} delay={i * 0.05}>
-                    <div className="group relative flex flex-col items-center gap-4 p-6 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] overflow-hidden">
+                    <div className="group relative flex flex-col items-center gap-4 p-4 md:p-6 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] overflow-hidden">
                       {/* Dynamic Glow Background */}
                       <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl blur-2xl ${skill.color} z-0`} />
 

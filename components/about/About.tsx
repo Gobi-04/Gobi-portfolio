@@ -24,7 +24,7 @@ const journey = [
 
 export default function About() {
   return (
-    <section id="about" className="flex flex-col items-center justify-center py-32 bg-transparent z-10 relative">
+    <section id="about" className="flex flex-col items-center justify-center py-20 md:py-32 bg-transparent z-10 relative">
       <div className="px-6 max-w-4xl w-full">
         <Reveal>
           <h2 className="text-sm font-bold uppercase tracking-[0.5em] text-purple-500 mb-6 text-center md:text-left">
@@ -32,7 +32,7 @@ export default function About() {
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white leading-[1.1] mb-16 text-center md:text-left tracking-tighter">
+          <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white leading-[1.1] mb-12 md:mb-16 text-center md:text-left tracking-tighter">
             Turning <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-cyan-400 animate-gradient-shift">ideas</span> into <span className="italic">impactful</span> digital solutions.
           </h1>
         </Reveal>

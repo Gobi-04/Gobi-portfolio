@@ -81,11 +81,11 @@ export default function Certifications() {
         <Section id="certifications" className="bg-transparent relative overflow-hidden">
             <div className="relative z-10 w-full px-6">
                 <Reveal>
-                    <div className="flex flex-col items-center mb-20 text-center">
+                    <div className="flex flex-col items-center mb-12 md:mb-20 text-center">
                         <h2 className="text-sm font-bold uppercase tracking-[0.5em] text-purple-500 mb-6 font-geist">
                             Achievements
                         </h2>
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tighter">
+                        <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tighter">
                             Certifi<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-cyan-400 animate-gradient-shift">cations</span>
                         </h1>
                     </div>

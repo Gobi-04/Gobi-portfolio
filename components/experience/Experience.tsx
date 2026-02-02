@@ -38,14 +38,14 @@ const experiences: ExperienceItem[] = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-32 px-6 bg-transparent z-10 relative">
+    <section id="experience" className="py-20 md:py-32 px-6 bg-transparent z-10 relative">
       <div className="max-w-4xl mx-auto">
         <Reveal>
-          <div className="flex flex-col items-center mb-24 text-center">
+          <div className="flex flex-col items-center mb-16 md:mb-24 text-center">
             <h2 className="text-sm font-bold uppercase tracking-[0.5em] text-indigo-400 mb-6">
               Career Path
             </h2>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white leading-tight">
+            <h1 className="text-4xl md:text-7xl font-black text-slate-900 dark:text-white leading-tight">
               Work <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400 italic">Experience</span>
             </h1>
           </div>
