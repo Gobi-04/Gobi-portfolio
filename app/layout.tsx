@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import Background from "@/components/ui/Background";
 import Noise from "@/components/ui/Noise";
-import CustomCursor from "@/components/ui/CustomCursor";
+// import CustomCursor from "@/components/ui/CustomCursor";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,7 +24,6 @@ export default function RootLayout({
         <ThemeProvider>
           <SmoothScroll>
             <Background />
-            <CustomCursor />
             <Noise />
             {children}
           </SmoothScroll>
