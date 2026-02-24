@@ -5,6 +5,7 @@ import Background from "@/components/ui/Background";
 import Noise from "@/components/ui/Noise";
 // import CustomCursor from "@/components/ui/CustomCursor";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import Preloader from "@/components/ui/Preloader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-[#030014] relative selection:bg-purple-500/30`} suppressHydrationWarning>
         <ThemeProvider>
           <SmoothScroll>
+            <Preloader />
             <Background />
             <Noise />
             {children}

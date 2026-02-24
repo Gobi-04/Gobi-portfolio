@@ -136,7 +136,6 @@ export default function Background() {
                 dpr={[1, 2]}
             >
                 <BackgroundMesh />
-                <Starfield />
             </Canvas>
         </div>
     );

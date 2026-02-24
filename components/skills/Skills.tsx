@@ -154,14 +154,35 @@ const toolsSkills: Skill[] = [
   { name: "Figma", percent: 27, color: "bg-pink-500", icon: <FaFigma /> },
 ];
 
+/* ================= MARQUEE COMPONENT ================= */
+
+function Marquee({ children, reverse = false, duration = 30 }: { children: ReactNode; reverse?: boolean; duration?: number }) {
+  return (
+    <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)] py-4">
+      <motion.div
+        animate={{ x: reverse ? ["-50%", 0] : [0, "-50%"] }}
+        transition={{
+          duration: duration,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        className="flex gap-8 px-4 flex-nowrap"
+      >
+        {children}
+        {children}
+      </motion.div>
+    </div>
+  );
+}
+
 /* ================= SECTION ================= */
 
 export default function Skills() {
   const { theme } = useTheme();
 
   return (
-    <section id="skills" className="py-20 md:py-32 px-6 flex flex-col items-center justify-center bg-transparent z-10 relative">
-      <div className="max-w-7xl w-full">
+    <section id="skills" className="py-20 md:py-32 flex flex-col items-center justify-center bg-transparent z-10 relative overflow-hidden">
+      <div className="max-w-7xl w-full px-6">
         <div className="flex flex-col items-center mb-16 md:mb-24 text-center">
           <Reveal>
             <h2 className="text-sm font-bold uppercase tracking-[0.5em] text-cyan-500 mb-6">
@@ -179,77 +200,65 @@ export default function Skills() {
             </p>
           </Reveal>
         </div>
+      </div>
 
-        <div className="flex flex-col gap-24">
-          {[
-            { title: "Frontend Development", skills: frontendSkills },
-            { title: "Backend Development", skills: backendSkills },
-            { title: "Databases", skills: databaseSkills },
-            { title: "Tools & Design", skills: toolsSkills },
-          ].map((category, categoryIdx) => (
-            <div key={category.title} className="flex flex-col gap-10">
+      <div className="w-full flex flex-col gap-12 overflow-hidden">
+        {[
+          { title: "Frontend Development", skills: frontendSkills, reverse: false },
+          { title: "Backend Development", skills: backendSkills, reverse: true },
+          { title: "Databases", skills: databaseSkills, reverse: false },
+          { title: "Tools & Design", skills: toolsSkills, reverse: true },
+        ].map((category, categoryIdx) => (
+          <div key={category.title} className="flex flex-col gap-6">
+            <div className="px-6 max-w-7xl mx-auto w-full">
               <Reveal delay={categoryIdx * 0.1}>
-                <h3 className="text-2xl font-black text-slate-800 dark:text-white/80 uppercase tracking-widest border-l-4 border-cyan-500 pl-6">
+                <h3 className="text-lg font-black text-slate-800 dark:text-white/60 uppercase tracking-[0.3em] pl-4 border-l-2 border-cyan-500">
                   {category.title}
                 </h3>
               </Reveal>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
-                {category.skills.map((skill, i) => (
-                  <Reveal key={skill.name} delay={i * 0.05}>
-                    <div className="group relative flex flex-col items-center gap-4 p-4 md:p-6 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] overflow-hidden">
-                      {/* Dynamic Glow Background */}
-                      <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl blur-2xl ${skill.color} z-0`} />
-
-                      <motion.div
-                        animate={{ y: [0, -5, 0] }}
-                        transition={{
-                          duration: 3 + Math.random() * 2,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: i * 0.1
-                        }}
-                        className="relative z-10 w-full flex flex-col items-center gap-4"
-                      >
-                        <div className="w-16 h-16 flex items-center justify-center rounded-xl bg-slate-50 dark:bg-white/5 border border-black/5 dark:border-white/5 group-hover:scale-110 transition-transform duration-300 relative">
-                          {/* Inner Glow for Icon */}
-                          <div className={`absolute inset-0 blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300 ${skill.color}`} />
-
-                          <div className="text-4xl text-purple-500 dark:text-purple-400 relative z-10 group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors duration-300">
-                            {skill.icon}
-                          </div>
-                        </div>
-                        <div className="flex flex-col items-center text-center">
-                          <span className="text-sm font-bold text-slate-700 dark:text-white uppercase tracking-wider group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
-                            {skill.name}
-                          </span>
-                          <div className="flex items-center gap-1.5 mt-1">
-                            <div className="w-12 h-1 rounded-full bg-slate-100 dark:bg-white/10 overflow-hidden">
-                              <motion.div
-                                initial={{ width: 0 }}
-                                whileInView={{ width: `${skill.percent}%` }}
-                                transition={{ duration: 1, delay: 0.5 }}
-                                className={`h-full ${skill.color}`}
-                              />
-                            </div>
-                            <span className="text-[10px] font-black text-purple-500">
-                              {skill.percent}%
-                            </span>
-                          </div>
-                        </div>
-                      </motion.div>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
             </div>
-          ))}
-        </div>
+
+            <Marquee reverse={category.reverse} duration={25 + categoryIdx * 5}>
+              {category.skills.map((skill, i) => (
+                <div
+                  key={`${category.title}-${skill.name}-${i}`}
+                  className="group relative flex items-center gap-4 px-8 py-5 rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)] whitespace-nowrap min-w-fit"
+                >
+                  {/* Dynamic Glow Background */}
+                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl blur-xl ${skill.color} z-0`} />
+
+                  <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-50 dark:bg-white/5 border border-black/5 dark:border-white/5 group-hover:scale-110 transition-transform duration-300 relative z-10">
+                    <div className="text-3xl text-purple-500 dark:text-purple-400 relative z-10 group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors duration-300">
+                      {skill.icon}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col relative z-10">
+                    <span className="text-base font-bold text-slate-700 dark:text-white uppercase tracking-wider group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+                      {skill.name}
+                    </span>
+                    <div className="flex items-center gap-2 mt-1">
+                      <div className="w-16 h-1 rounded-full bg-slate-100 dark:bg-white/10 overflow-hidden">
+                        <div
+                          className={`h-full ${skill.color}`}
+                          style={{ width: `${skill.percent}%` }}
+                        />
+                      </div>
+                      <span className="text-[10px] font-black text-purple-500">
+                        {skill.percent}%
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Marquee>
+          </div>
+        ))}
       </div>
 
-      <div className="w-full h-full absolute pointer-events-none">
+      <div className="w-full h-full absolute pointer-events-none top-0">
         <div className="w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover">
-          <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(72,52,212,0.2)_0%,transparent_70%)]" />
+          <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.1)_0%,transparent_70%)]" />
         </div>
       </div>
     </section>
