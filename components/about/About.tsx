@@ -12,24 +12,6 @@ const personalInfo = [
   { label: "Language", value: "Tamil / English" },
 ];
 
-const techStack = [
-  {
-    category: "Front-End",
-    skills: "React, Next.js, Tailwind CSS, JavaScript, HTML5/CSS3"
-  },
-  {
-    category: "Back-End",
-    skills: "Node.js, PHP, Python, Java, REST APIs"
-  },
-  {
-    category: "Database",
-    skills: "MySQL, PostgreSQL, MongoDB"
-  },
-  {
-    category: "Tools & CMS",
-    skills: "WordPress, Git, GitHub, AWS, Figma"
-  }
-];
 
 function TiltCard({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -82,10 +64,10 @@ export default function About() {
   return (
     <Section id="about" className="bg-transparent relative overflow-hidden py-32 md:py-48">
       <div className="max-w-[1400px] mx-auto w-full px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
           {/* LEFT: BIO & INFO */}
-          <div className="lg:col-span-12 xl:col-span-5 flex flex-col gap-12">
+          <div className="lg:col-span-12 xl:col-span-7 flex flex-col gap-12">
             <Reveal>
               <div className="flex items-center gap-4 mb-2">
                 <div className="w-12 h-[1px] bg-purple-500" />
@@ -120,28 +102,37 @@ export default function About() {
             </Reveal>
           </div>
 
-          {/* RIGHT: TECH STACK GRID */}
-          <div className="lg:col-span-12 xl:col-span-7">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {techStack.map((stack, i) => (
-                <Reveal key={stack.category} delay={0.1 * i}>
-                  <TiltCard>
-                    <div
-                      className="group h-full p-8 rounded-3xl border border-slate-200 dark:border-white/5 bg-slate-50/50 dark:bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/30 dark:hover:border-purple-500/30"
-                      style={{ transform: "translateZ(50px)" }}
-                    >
-                      <h3 className="text-base font-black text-slate-900 dark:text-white uppercase tracking-wider mb-4 flex items-center gap-3">
-                        <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
-                        {stack.category}
-                      </h3>
-                      <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
-                        {stack.skills}
-                      </p>
-                    </div>
-                  </TiltCard>
-                </Reveal>
-              ))}
-            </div>
+          {/* RIGHT: IMAGE */}
+          <div className="lg:col-span-12 xl:col-span-5 flex justify-center lg:justify-end">
+            <Reveal delay={0.4}>
+              <div className="relative group">
+                {/* Offset Background Shape */}
+                <motion.div
+                  animate={{
+                    y: [0, -15, 0],
+                    rotate: [0, 2, 0]
+                  }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -left-6 -top-6 w-full h-full bg-purple-500/10 rounded-[2rem_2rem_0_10rem] z-0"
+                />
+
+                {/* Main Image Frame (Floating Effect) */}
+                <motion.div
+                  animate={{
+                    y: [-10, 5, -10],
+                  }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[32rem] lg:h-[32rem] rounded-[2rem_2rem_0_12rem] overflow-hidden border-4 border-white dark:border-slate-900 shadow-2xl z-10"
+                >
+                  <img
+                    src="/profile.jpg"
+                    alt="Gobinath Profile"
+                    className="w-full h-full object-cover transform transition duration-700 hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-500/10 to-transparent pointer-events-none" />
+                </motion.div>
+              </div>
+            </Reveal>
           </div>
 
         </div>
