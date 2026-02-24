@@ -26,6 +26,7 @@ import {
   SiMysql,
   SiPostgresql,
   SiTailwindcss,
+  SiMongodb,
 } from "react-icons/si";
 
 type Skill = {
@@ -144,6 +145,7 @@ const backendSkills: Skill[] = [
 const databaseSkills: Skill[] = [
   { name: "MySQL", percent: 56, color: "bg-sky-500", icon: <SiMysql /> },
   { name: "PostgreSQL", percent: 44, color: "bg-blue-600", icon: <SiPostgresql /> },
+  { name: "MongoDB", percent: 38, color: "bg-green-600", icon: <SiMongodb /> },
 ];
 
 const toolsSkills: Skill[] = [
