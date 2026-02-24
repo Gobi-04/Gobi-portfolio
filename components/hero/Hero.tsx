@@ -41,18 +41,18 @@ export default function Hero() {
             className="mb-2"
           >
             {/* <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/40"> */}
-              {/* Creative Production Studio */}
+            {/* Creative Production Studio */}
             {/* </span> */}
           </motion.div>
 
           {/* Heading - Reverted & Scaled Down */}
-          <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-black text-white leading-[0.85] tracking-tighter mb-4 uppercase italic">
+          <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-black text-slate-900 dark:text-white leading-[0.85] tracking-tighter mb-4 uppercase italic">
             I AM <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/20">GOBINATH.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-slate-900 to-slate-900/40 dark:from-white dark:to-white/20">GOBINATH.</span>
           </h1>
 
           {/* Description - Reverted */}
-          <p className="text-sm md:text-base text-white font-medium uppercase tracking-[0.2em] leading-loose max-w-lg mb-4">
+          <p className="text-sm md:text-base text-slate-600 dark:text-white font-medium uppercase tracking-[0.2em] leading-loose max-w-lg mb-4">
             High-Performance Digital Experiences <br />
             Built for the Next Generation.
           </p>
@@ -72,7 +72,7 @@ export default function Hero() {
             </a>
             <a
               href="#contact"
-              className="px-8 py-4 rounded-full border-2 border-white/10 text-white font-black uppercase tracking-widest text-[10px] hover:bg-white/5 transition-all duration-500 text-center"
+              className="px-8 py-4 rounded-full border-2 border-slate-200 dark:border-white/10 text-slate-900 dark:text-white font-black uppercase tracking-widest text-[10px] hover:bg-slate-100 dark:hover:bg-white/5 transition-all duration-500 text-center"
             >
               Contact
             </a>

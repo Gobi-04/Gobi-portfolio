@@ -14,7 +14,7 @@ const journey = [
   },
   {
     title: "Real projects, real problems",
-    text: "I built platforms like African valves, Continent pipes, and security service systems focused on real use cases.",
+    text: "I built platforms like African valves, Krelson , and security service systems focused on real use cases.",
   },
   {
     title: "Now",

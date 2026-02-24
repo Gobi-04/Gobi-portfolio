@@ -40,11 +40,12 @@ function CertificationCard({ cert, index }: { cert: Certification; index: number
         <Reveal delay={index * 0.1}>
             <div
                 className="
+                    flex flex-col
                     h-full
                     rounded-[2rem]
                     p-8
-                    border border-white/10
-                    bg-white/5
+                    border border-slate-200 dark:border-white/10
+                    bg-slate-50/50 dark:bg-white/5
                     backdrop-blur-xl
                     transition-all duration-500
                     hover:-translate-y-2
@@ -56,18 +57,18 @@ function CertificationCard({ cert, index }: { cert: Certification; index: number
                     {cert.icon}
                 </div>
 
-                <div className="mb-4">
-                    <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors duration-300 leading-tight">
+                <div className="flex-grow mb-6">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-purple-400 transition-colors duration-300 leading-tight">
                         {cert.title}
                     </h3>
                 </div>
 
-                <div className="flex items-center gap-2">
-                    <span className="text-sm text-slate-400 font-medium tracking-wide">
+                <div className="flex items-center gap-2 mt-auto pt-4 border-t border-slate-200/50 dark:border-white/5">
+                    <span className="text-sm text-slate-500 dark:text-slate-400 font-medium tracking-wide">
                         Issued by {cert.issuer}
                     </span>
                     <span className="w-1.5 h-1.5 rounded-full bg-purple-500/40" />
-                    <span className="text-[10px] font-bold text-purple-500/60 uppercase tracking-widest">
+                    <span className="text-[10px] font-bold text-purple-600 dark:text-purple-500/60 uppercase tracking-widest">
                         Verified
                     </span>
                 </div>
