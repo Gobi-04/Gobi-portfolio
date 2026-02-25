@@ -13,33 +13,20 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "ServiceFinder",
-    description:
-      "Local electrician and plumber service finder with authentication and listings.",
-    image: "/projects/servicefinder.jpg",
-    stack: ["HTML", "PHP", "MySQL"],
-  },
-  {
-    title: "Online Security Guard Hiring",
-    description:
-      "Platform to hire security guards online with booking flow and service management.",
-    image: "/projects/security-guard.png",
-    stack: ["HTML", "CSS", "JS", "Python", "MySQL"],
-  },
-  {
-    title: "Face Attendance System",
-    description:
-      "Automated attendance system using face recognition and computer vision.",
-    image: "/projects/face-attendance.jpg",
-    stack: ["Python", "OpenCV", "Flask"],
-  },
-  {
-    title: "Continental Pipes",
+    title: "Krelson",
     description:
       "E-Commerce site for selling pipes and fittings.",
     image: "/projects/pro-port.png",
     stack: ["Next.js", "Tailwind", "MySQL"],
-    link: "http://46.101.118.118",
+    link: "https://www.krelson.com/",
+  },
+  {
+    title: "African Valves",
+    description:
+      "Industrial valve solutions for various sectors.",
+    image: "/projects/security-guard.png",
+    stack: ["Next.js", "Tailwind", "PostgreSQL"],
+    link: "https://www.africanvalve.com/",
   },
 ];
 
