@@ -27,6 +27,7 @@ import {
   SiPostgresql,
   SiTailwindcss,
   SiMongodb,
+  SiTypescript,
 } from "react-icons/si";
 
 type Skill = {
@@ -130,6 +131,7 @@ const frontendSkills: Skill[] = [
   { name: "Next.js", percent: 47, color: "bg-gray-800", icon: <SiNextdotjs /> },
   { name: "React", percent: 41, color: "bg-cyan-500", icon: <FaReact /> },
   { name: "JavaScript", percent: 61, color: "bg-yellow-400", icon: <FaJs /> },
+  { name: "TypeScript", percent: 60, color: "bg-blue-600", icon: <SiTypescript /> },
   { name: "Tailwind CSS", percent: 53, color: "bg-sky-400", icon: <SiTailwindcss /> },
   { name: "HTML5", percent: 85, color: "bg-orange-500", icon: <FaHtml5 /> },
   { name: "CSS3", percent: 75, color: "bg-blue-500", icon: <FaCss3Alt /> },
