@@ -16,7 +16,7 @@ const projects: Project[] = [
     title: "Krelson",
     description:
       "E-Commerce site for selling pipes and fittings.",
-    image: "/projects/pro-port.png",
+    image: "/projects/krelson.png",
     stack: ["Next.js", "Tailwind", "MySQL"],
     link: "https://www.krelson.com/",
   },
@@ -24,7 +24,7 @@ const projects: Project[] = [
     title: "African Valves",
     description:
       "Industrial valve solutions for various sectors.",
-    image: "/projects/security-guard.png",
+    image: "/projects/african-valves.png",
     stack: ["Next.js", "Tailwind", "PostgreSQL"],
     link: "https://www.africanvalve.com/",
   },
